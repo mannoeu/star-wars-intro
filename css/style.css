@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, sans-serif;
+  min-height: 100vh;
+  background: url(../assets/space.webp);
+  background-size: 400px;
+  background-position: center;
+}
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logoTranslate 12s linear forwards;
+}
+@keyframes logoTranslate {
+  0% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: absolute;
+  perspective: 400px;
+  transform: translateY(90%);
+  animation: textScroll 55s linear forwards;
+  animation-delay: 7s;
+}
+.content h2,
+h5,
+p {
+  color: rgb(243, 207, 47);
+  opacity: 1;
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) translateZ(100px);
+  line-height: 1em;
+  animation: fadeTextScroll 55s linear forwards;
+  animation-delay: 7s;
+  --delay: 7s;
+  width: 210vh;
+}
+.content h2 {
+  font-size: 6em;
+  font-weight: bold;
+  animation-delay: 7s;
+}
+.content h5 {
+  font-size: 6em;
+  animation-delay: calc(3s + (var(--delay)));
+}
+.content p {
+  font-size: 5em;
+  animation-delay: calc(var(--delay) + (var(--i)));
+}
+
+@keyframes textScroll {
+  0% {
+    transform: translateY(90%) scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-90%) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeTextScroll {
+  0% {
+    transform: rotateX(6deg) translateZ(100px) scale(1);
+  }
+  100% {
+    transform: rotateX(30deg) translateZ(0px) scale(0);
+  }
+}
+
+iframe {
+  visibility: none;
+  display: none;
+}
